@@ -2,15 +2,13 @@ import speech_recognition as sr
 import pyaudio as audio
 from gtts import gTTS
 import os
+
 isim = input('İsmin Nedir?')
 def konus(yazi, dil = "tr"):
 	tts = gTTS(text=yazi, lang=dil) 
 	tts.save("sound.mp3")
 	os.system("ffplay -nodisp -loglevel panic -autoexit sound.mp3")
 while True:
- 
-
-
  r = sr.Recognizer()
 
  with sr.Microphone() as source:
