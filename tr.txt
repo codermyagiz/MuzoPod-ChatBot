@@ -1,4 +1,4 @@
-Merhaba
+﻿Merhaba
 Merhaba
 
 nasılsın
@@ -104,7 +104,7 @@ ne yesem acaba
 Adana kebap ve yanında ayran off miss
 
 dünyanın en iyi asistanı hangisi
-Şuan yazıştığın
+Şuan konuştuğun
 
 Apple mı Samsung mu
 Tabi ki muzopod

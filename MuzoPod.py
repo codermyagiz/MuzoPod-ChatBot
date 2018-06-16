@@ -5,10 +5,10 @@ import pyaudio as audio
 from gtts import gTTS
 import os
 
-isim = input('İsmin Nedir?')
+name = input('İsmin Nedir?')
 qa = dict([x.split("\n") for x in open("tr.txt","r", encoding="utf8").read().split("\n\n")])
 
-def konus(yazi, dil = "tr"):
+def speak(yazi, dil = "tr"):
     tts = gTTS(text=yazi, lang=dil) 
     tts.save("sound.mp3")
     os.system("ffplay -nodisp -loglevel panic -autoexit sound.mp3")
@@ -20,10 +20,10 @@ while True:
         print('Bir Şeyler Söyle')
         audio = r.listen(source)
         try:     
-            tahmin = r.recognize_google(audio, language="tr")
-            print('Google Sizin Şunu Söylediğinizi :\n' + tahmin)
-            if tahmin in qa.keys():
-                cevap = qa[tahmin].replace("{name}",isim)
-                print(cevap)
-                konus(cevap)
+            estimate = r.recognize_google(audio, language="tr")
+            print('MuzoPod Sizin Şunu Söylediğinizi Düşünüyor :\n' + tahmin)
+            if estimate in qa.keys():
+                answer = qa[estimate].replace("{name}",name)
+                print(answer)
+                speak(answer)
         except:pass
