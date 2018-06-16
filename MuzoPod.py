@@ -21,7 +21,7 @@ while True:
         audio = r.listen(source)
         try:     
             estimate = r.recognize_google(audio, language="tr")
-            print('MuzoPod Sizin Şunu Söylediğinizi Düşünüyor :\n' + tahmin)
+            print('MuzoPod Sizin Şunu Söylediğinizi Düşünüyor :\n' + estimate)
             if estimate in qa.keys():
                 answer = qa[estimate].replace("{name}",name)
                 print(answer)
