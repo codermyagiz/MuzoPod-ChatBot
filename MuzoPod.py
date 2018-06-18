@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #encoding = utf8
-
+#!/usr/bin/env python 
 import speech_recognition as sr
 import pyaudio as audio
 import os
@@ -9,6 +9,12 @@ import six
 from io import open
 from six.moves import input
 from gtts import gTTS
+import subprocess
+
+
+
+
+
 
 if six.PY2:
     reload(sys)
@@ -23,8 +29,8 @@ qa = dict([x.split("\n") for x in open("tr.txt","r", encoding="utf-8-sig").read(
 
 def speak(yazi, dil = "tr"):
     tts = gTTS(text=yazi, lang=dil) 
-    tts.save("sound.mp3")
-    os.system("ffplay -nodisp -loglevel panic -autoexit sound.mp3")
+    tts.save("sound.mp3")   
+    os.popen("ffplay -nodisp -loglevel panic -autoexit sound.mp3")
 
 while True:
     r = sr.Recognizer()
