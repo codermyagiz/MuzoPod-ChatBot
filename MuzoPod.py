@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 #encoding = utf8
-#!/usr/bin/env python 
 import speech_recognition as sr
 import pyaudio as audio
 import os
@@ -10,11 +9,6 @@ from io import open
 from six.moves import input
 from gtts import gTTS
 import subprocess
-
-
-
-
-
 
 if six.PY2:
     reload(sys)
@@ -39,10 +33,10 @@ while True:
         print(u'Bir Şeyler Söyle')
         audio = r.listen(source)
         try:     
-            estimate = r.recognize_google(audio, language="tr")
-            print(u'MuzoPod Sizin Şunu Söylediğinizi Düşünüyor: ' + estimate)
+            question = r.recognize_google(audio, language="tr")
+            print(u'MuzoPod Sizin Şunu Söylediğinizi Düşünüyor: ' + question)
             if estimate in qa.keys():
-                answer = qa[estimate].replace("{name}",name)
+                answer = qa[question].replace("{name}",name)
                 print(answer)
                 speak(answer)
         except KeyboardInterrupt:
