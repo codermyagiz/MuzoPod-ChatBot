@@ -6,23 +6,10 @@ import pyaudio as audio
 import os
 import sys
 import six
+import tkinter as tk
 from io import open
 from six.moves import input
 from gtts import gTTS
-import subprocess
-#import denemegui.py
-import tkinter as tk
-
-
-
-
-
-
-
-
-
-
-
 
 if six.PY2:
     reload(sys)
@@ -39,8 +26,6 @@ def speak(yazi, dil = "tr"):
     tts = gTTS(text=yazi, lang=dil) 
     tts.save("sound.mp3")   
     os.popen("ffplay -nodisp -loglevel panic -autoexit sound.mp3")
-
-
 
 while True:
     r = sr.Recognizer()
