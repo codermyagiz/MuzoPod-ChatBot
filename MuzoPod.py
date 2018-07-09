@@ -10,7 +10,7 @@ from io import open
 from six.moves import input
 from gtts import gTTS
 import subprocess
-#import denemegui.py
+#import denemegui
 import tkinter as tk
 
 

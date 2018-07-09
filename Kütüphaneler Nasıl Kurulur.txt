@@ -1,0 +1,7 @@
+Kütüphaneleri Kurmak Ýçin:
+1 - DersBot klasorunun içinde ki  "Kütüphane Kurulum Ýçin Týkla" klasorune giriniz.
+2- Klasorun içinde "Kurulum" adlý dosyayý açýnýz.
+3 - 3 adet cmd(siyah ekran) açýlýp yazýlar akacaktýr. 
+4 - Bittiðin de DersBot'u sorunsuz bir þekilde kullanabilirsiniz.
+Uyarý: Kütüphaneleri kurduktan sonra bir daha kurmaya çalýþmayýn.
+Bir daha ayný komutlar çalýþýrsa kütüphaneler silinebilir.
