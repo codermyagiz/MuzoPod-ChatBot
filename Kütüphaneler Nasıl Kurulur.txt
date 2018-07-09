@@ -1,7 +1,3 @@
-Kütüphaneleri Kurmak İçin:
-1 - DersBot klasorunun içinde ki  "Kütüphane Kurulum İçin Tıkla" klasorune giriniz.
-2- Klasorun içinde "Kurulum" adlı dosyayı açınız.
-3 - 3 adet cmd(siyah ekran) açılıp yazılar akacaktır. 
-4 - Bittiğin de DersBot'u sorunsuz bir şekilde kullanabilirsiniz.
-Uyarı: Kütüphaneleri kurduktan sonra bir daha kurmaya çalışmayın.
-Bir daha aynı komutlar çalışırsa kütüphaneler silinebilir.
+KÃ¼tÃ¼phaneleri Kurmak Ä°Ã§in:
+1 - "Kurulum" adlÄ± dosyayÄ± aÃ§Ä±nÄ±z(Kurulum.bat).
+2 - BittiÄŸinde MuzoPod'u sorunsuz bir ÅŸekilde kullanabilirsiniz.
