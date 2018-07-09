@@ -45,19 +45,10 @@ while True:
             print(u'MuzoPod Sizin Şunu Söylediğinizi Düşünüyor: ' + prediction)
 
             response = json.load(reader(urlopen("http://muzopod.herokuapp.com/ask?sentence={}".format(quote_plus(prediction.lower().encode('utf8'))))))
-            print(response)
-            """
-            YAPILACAKLAR:
-                response["status"] ve response["answer"] kullanarak:
-                eğer status 0:
-                    tr.txt de bulunmuyor, yapılacak bir şey yok
-                eğer status 1:
-                    tr.txt de bulunuyor, answer ı print le ve konuştur
-                
-                son olarak da 45. satırdaki print(response) komudunu kaldır
-
-            KOLAY GELSİN :)
-            """
+            if response["status"]:
+                answer = response["answer"].replace("{name}",name)
+                print(answer)
+                speak(answer)
         except KeyboardInterrupt:
             break
         except sr.UnknownValueError:
