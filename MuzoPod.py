@@ -7,11 +7,15 @@ import os
 import sys
 import six
 import tkinter as tk
+import subprocess
+import json
+import codecs
+
 from io import open
 from six.moves import input
+from six.moves.urllib.request import urlopen
+from six.moves.urllib.parse import quote_plus    
 from gtts import gTTS
-import subprocess
-import tkinter as tk
 
 if six.PY2:
     reload(sys)
@@ -20,9 +24,11 @@ if six.PY2:
     from requests.packages import urllib3
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+r = sr.Recognizer()
+reader = codecs.getreader("utf-8")
+
 print(u"İsmin Nedir?")
 name = input()
-qa = dict([x.split("\n") for x in open("tr.txt","r", encoding="utf-8-sig").read().split("\n\n")])
 
 def speak(yazi, dil = "tr"):
     tts = gTTS(text=yazi, lang=dil) 
@@ -30,20 +36,29 @@ def speak(yazi, dil = "tr"):
     os.popen("ffplay -nodisp -loglevel panic -autoexit sound.mp3")
 
 while True:
-    r = sr.Recognizer()
-    
     with sr.Microphone() as source:
         print(u'Bir Şeyler Söyle')
 
         audio = r.listen(source)
         try:     
-            estimate = r.recognize_google(audio, language="tr")
-            print(u'MuzoPod Sizin Şunu Söylediğinizi Düşünüyor: ' + estimate)
-            if estimate in qa.keys():
-                answer = qa[estimate].replace("{name}",name)
-                print(answer)
-                speak(answer)
+            prediction = r.recognize_google(audio, language="tr")
+            print(u'MuzoPod Sizin Şunu Söylediğinizi Düşünüyor: ' + prediction)
+
+            response = json.load(reader(urlopen("http://muzopod.herokuapp.com/ask?sentence={}".format(quote_plus(prediction.lower().encode('utf8'))))))
+            print(response)
+            """
+            YAPILACAKLAR:
+                response["status"] ve response["answer"] kullanarak:
+                eğer status 0:
+                    tr.txt de bulunmuyor, yapılacak bir şey yok
+                eğer status 1:
+                    tr.txt de bulunuyor, answer ı print le ve konuştur
+                
+                son olarak da 45. satırdaki print(response) komudunu kaldır
+
+            KOLAY GELSİN :)
+            """
         except KeyboardInterrupt:
             break
-        except:
+        except sr.UnknownValueError:
             pass
