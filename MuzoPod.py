@@ -49,6 +49,15 @@ while True:
                 answer = response["answer"].replace("{name}",name)
                 print(answer)
                 speak(answer)
+            else:
+                print(u"MuzoPod Söylediğiniz Şeye Nasıl Cevap Vereceğini Bilmiyor :(. Ama ona öğretebilirsiniz!")
+                print(u"MuzoPod'un '{}'a vermesi gereken cevap nedir?".format(prediction))
+                answer = input()
+                if not answer:
+                    print(u"İptal edildi.")
+                else:
+                    urlopen("http://muzopod.herokuapp.com/request?q={}&a={}".format(quote_plus(prediction.lower().encode('utf8')),quote_plus(answer.lower().encode('utf8'))))
+                    print(u"Teşekkürler! Cevabınız işlemden geçtikten sonra MuzoPod'a öğretilecek.")
         except KeyboardInterrupt:
             break
         except sr.UnknownValueError:
