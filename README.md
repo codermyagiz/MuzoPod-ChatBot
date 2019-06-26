@@ -1,4 +1,4 @@
 # MuzoPod-ChatBot
 
 MuzoPod-ChatBot
-Muzaffer Yağız Yasak tarafından yapılan bir ChatBot projesi'dir.
+Muzaffer Yağız YASAK tarafından yapılan bir ChatBot projesi'dir.
