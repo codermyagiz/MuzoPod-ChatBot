@@ -1,3 +1,0 @@
-Kütüphaneleri Kurmak İçin:
-1 - "Kurulum" adlı dosyayı açınız(Kurulum.bat).
-2 - Bittiğinde MuzoPod'u sorunsuz bir şekilde kullanabilirsiniz.
