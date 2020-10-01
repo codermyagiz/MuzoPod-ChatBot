@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 #encoding = utf8
-#!/usr/bin/env python 
+#!/usr/bin/env python
 import speech_recognition as sr
 import pyaudio as audio
 import os
 import sys
 import six
-import tkinter as tk
 import subprocess
 import json
 import codecs
@@ -14,7 +13,7 @@ import codecs
 from io import open
 from six.moves import input
 from six.moves.urllib.request import urlopen
-from six.moves.urllib.parse import quote_plus    
+from six.moves.urllib.parse import quote_plus
 from gtts import gTTS
 
 if six.PY2:
@@ -31,8 +30,8 @@ print(u"İsmin Nedir?")
 name = input()
 
 def speak(yazi, dil = "tr"):
-    tts = gTTS(text=yazi, lang=dil) 
-    tts.save("sound.mp3")   
+    tts = gTTS(text=yazi, lang=dil)
+    tts.save("sound.mp3")
     os.popen("ffplay -nodisp -loglevel panic -autoexit sound.mp3")
 
 while True:
@@ -40,7 +39,7 @@ while True:
         print(u'Bir Şeyler Söyle')
 
         audio = r.listen(source)
-        try:     
+        try:
             prediction = r.recognize_google(audio, language="tr")
             print(u'MuzoPod Sizin Şunu Söylediğinizi Düşünüyor: ' + prediction)
 
